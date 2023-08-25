@@ -15,8 +15,8 @@ pipeline {
           
             steps {
         withDockerRegistry([ credentialsId: "dockerlogin", url: "" ]) {
-          sh  'docker push nikhilnidhi/nginxtest:latest'
-          sh  'docker push nikhilnidhi/nginxtest:$BUILD_NUMBER' 
+          sh  'docker push khadijahthegreat/nginxtest:latest'
+          sh  'docker push khadijahthegreat/nginxtest:$BUILD_NUMBER' 
         }
                   
           }
@@ -25,14 +25,14 @@ pipeline {
       stage('Run Docker container on Jenkins Agent') {
              
             steps {
-                sh "docker run -d -p 4030:80 nikhilnidhi/nginxtest"
+                sh "docker run -d -p 4030:80 khadijahthegreat/nginxtest"
  
             }
         }
  stage('Run Docker container on remote hosts') {
              
             steps {
-                sh "docker -H ssh://jenkins@172.31.28.25 run -d -p 4001:80 nikhilnidhi/nginxtest"
+                sh "docker -H ssh://jenkins@172.31.28.25 run -d -p 4001:80 khadijahthegreat/nginxtest"
  
             }
         }
