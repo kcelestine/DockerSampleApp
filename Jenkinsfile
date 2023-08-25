@@ -5,8 +5,8 @@ pipeline {
            steps {
               
                 sh 'docker build -t nginxtest:latest .' 
-                sh 'docker tag nginxtest nikhilnidhi/nginxtest:latest'
-                sh 'docker tag nginxtest nikhilnidhi/nginxtest:$BUILD_NUMBER'
+                sh 'docker tag nginxtest khadijahthegreat/nginxtest:latest'
+                sh 'docker tag nginxtest khadijahthegreat/nginxtest:$BUILD_NUMBER'
                
           }
         }
